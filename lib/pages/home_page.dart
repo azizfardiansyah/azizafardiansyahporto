@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   bool _isScrolled = false;
   int _activeSection = 0;
 
@@ -141,6 +142,7 @@ class _HomePageState extends State<HomePage> {
     final isMobile = Responsive.isMobile(context);
 
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: _buildAppBar(context, isMobile),
       drawer: isMobile ? _buildDrawer(context) : null,
@@ -221,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                 Icons.menu,
                 color: _isScrolled ? AppTheme.textPrimary : AppTheme.textPrimary,
               ),
-              onPressed: () => Scaffold.of(context).openDrawer(),
+              onPressed: () => _scaffoldKey.currentState?.openDrawer(),
             )
           : Padding(
               padding: const EdgeInsets.only(left: AppTheme.spacingLg),

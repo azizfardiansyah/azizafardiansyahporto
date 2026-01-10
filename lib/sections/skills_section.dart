@@ -76,18 +76,22 @@ class SkillsSection extends StatelessWidget {
         ),
         const SizedBox(height: AppTheme.spacingLg),
         
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: isMobile ? 1 : (Responsive.isTablet(context) ? 2 : 3),
-            crossAxisSpacing: AppTheme.spacingMd,
-            mainAxisSpacing: AppTheme.spacingMd,
-            childAspectRatio: isMobile ? 2.2 : 1.4,
-          ),
-          itemCount: categories.length,
-          itemBuilder: (context, index) {
-            return _buildSkillCard(context, categories[index]);
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final crossAxisCount = isMobile ? 1 : (Responsive.isTablet(context) ? 2 : 3);
+            final spacing = AppTheme.spacingMd;
+            final itemWidth = (constraints.maxWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount;
+            
+            return Wrap(
+              spacing: spacing,
+              runSpacing: spacing,
+              children: categories.map((category) {
+                return SizedBox(
+                  width: itemWidth,
+                  child: _buildSkillCard(context, category),
+                );
+              }).toList(),
+            );
           },
         ),
       ],
@@ -98,6 +102,7 @@ class SkillsSection extends StatelessWidget {
     return InfoCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             category.title,
@@ -107,18 +112,14 @@ class SkillsSection extends StatelessWidget {
           Text(
             category.description,
             style: Theme.of(context).textTheme.bodySmall,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: AppTheme.spacingMd),
-          Expanded(
-            child: Wrap(
-              spacing: AppTheme.spacingXs,
-              runSpacing: AppTheme.spacingXs,
-              children: category.skills
-                  .map((skill) => SkillChip(label: skill))
-                  .toList(),
-            ),
+          Wrap(
+            spacing: AppTheme.spacingXs,
+            runSpacing: AppTheme.spacingXs,
+            children: category.skills
+                .map((skill) => SkillChip(label: skill))
+                .toList(),
           ),
         ],
       ),

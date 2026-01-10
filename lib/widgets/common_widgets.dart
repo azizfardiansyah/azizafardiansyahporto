@@ -93,29 +93,36 @@ class InfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: backgroundColor ?? AppTheme.surfaceWhite,
-      borderRadius: BorderRadius.circular(AppTheme.radiusLg),
-      child: InkWell(
-        onTap: onTap,
+    final content = Container(
+      padding: padding ?? const EdgeInsets.all(AppTheme.spacingLg),
+      decoration: BoxDecoration(
+        color: backgroundColor ?? AppTheme.surfaceWhite,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
-        child: Container(
-          padding: padding ?? const EdgeInsets.all(AppTheme.spacingLg),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppTheme.radiusLg),
-            border: Border.all(color: AppTheme.divider),
-            boxShadow: const [
-              BoxShadow(
-                color: AppTheme.cardShadow,
-                blurRadius: 8,
-                offset: Offset(0, 2),
-              ),
-            ],
+        border: Border.all(color: AppTheme.divider),
+        boxShadow: const [
+          BoxShadow(
+            color: AppTheme.cardShadow,
+            blurRadius: 8,
+            offset: Offset(0, 2),
           ),
-          child: child,
-        ),
+        ],
       ),
+      child: child,
     );
+
+    if (onTap != null) {
+      return Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(AppTheme.radiusLg),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(AppTheme.radiusLg),
+          child: content,
+        ),
+      );
+    }
+
+    return content;
   }
 }
 
