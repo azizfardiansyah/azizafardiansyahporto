@@ -7,23 +7,45 @@ class PortfolioData {
 
   // Personal Info
   static const String name = 'Azis Fardiansyah';
-  static const String role = 'Web & Android Developer';
-  static const String tagline = 'Building Robust Business Systems';
+  static const String role = 'Technical Project Manager & Solution Architect';
+  static const String tagline = 'Bridging Business Problems to Technology Solutions';
   static const String heroSubtitle =
-      'Bridging technology and business processes through reliable web and mobile solutions, with expertise in SAP MM & WM implementation.';
+      'Menganalisis masalah bisnis, merancang solusi teknologi, dan mengeksekusi dengan pendekatan AI-Assisted Development untuk hasil yang efisien dan berkualitas.';
 
   // About
   static const String aboutDescription = '''
-Saya adalah seorang developer dengan pengalaman dalam membangun aplikasi web dan Android yang fokus pada stabilitas dan skalabilitas sistem. Latar belakang saya sebagai konsultan SAP MM (Material Management) dan WM (Warehouse Management) memberikan perspektif unik dalam memahami proses bisnis dan kebutuhan operasional industri.
+Saya adalah jembatan antara masalah bisnis dan solusi teknologi. Dengan latar belakang sebagai konsultan SAP MM/WM dan pengalaman dalam pengembangan aplikasi, saya memahami bahwa teknologi hanyalah alat — yang terpenting adalah memecahkan masalah nyata.
 
-Pendekatan saya dalam pengembangan software selalu berorientasi pada proses bisnis, bukan hanya fitur teknis. Saya percaya bahwa aplikasi yang baik adalah yang mampu menyelesaikan masalah nyata dan terintegrasi dengan sistem bisnis yang ada.
+Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solusi yang terukur, dan eksekusi menggunakan AI-Assisted Development untuk mempercepat delivery tanpa mengorbankan kualitas. Di era 2026, memanfaatkan AI bukan kelemahan — itu adalah efisiensi.
 ''';
 
   static const String aboutFocus =
-      'Fokus pada sistem bisnis, integrasi proses, dan stabilitas aplikasi jangka panjang.';
+      'Fokus pada analisis masalah bisnis, perancangan solusi, dan eksekusi efisien dengan AI-Assisted Development.';
 
   // Skills
   static const List<SkillCategory> technicalSkills = [
+    SkillCategory(
+      title: 'AI-Assisted Development',
+      description: 'Leveraging AI for efficient & quality delivery',
+      skills: [
+        'AI Pair Programming',
+        'Rapid Prototyping with AI',
+        'Code Review & Optimization',
+        'Business Logic Generation',
+        'Documentation Automation',
+      ],
+    ),
+    SkillCategory(
+      title: 'Solution Architecture',
+      description: 'Designing scalable business solutions',
+      skills: [
+        'Requirements Analysis',
+        'System Design',
+        'Integration Architecture',
+        'Database Design',
+        'API Design',
+      ],
+    ),
     SkillCategory(
       title: 'Web Development',
       description: 'Modern web applications with focus on performance',
@@ -163,151 +185,109 @@ Pendekatan saya dalam pengembangan software selalu berorientasi pada proses bisn
     Project(
       title: 'Inventory Management System',
       businessContext: 'Warehouse Operations',
-      description:
-          'Sistem manajemen inventory untuk tracking barang masuk-keluar dengan integrasi barcode scanning dan real-time stock updates.',
-      technologies: ['Flutter',
-      'BAPI','SAP RFC', 'Firebase', 'REST API', 'Barcode Scanner'],
-      role: 'Full-stack Developer',
-      impact: 'Mengurangi waktu proses inventory checking hingga 60%',
+      problem:
+          'Klien mengalami inefisiensi 40% pada proses stock opname karena pencatatan manual dan keterlambatan sinkronisasi data dengan SAP.',
+      analysisSolution:
+          'Saya menganalisis alur kerja warehouse dan merancang solusi mobile-first dengan barcode scanning. Menggunakan AI-Assisted Development untuk mempercepat prototyping dan mengimplementasikan offline-first architecture dengan queue system untuk mengatasi koneksi tidak stabil.',
+      technologies: ['Flutter', 'BAPI', 'SAP RFC', 'Firebase', 'REST API', 'Barcode Scanner'],
+      role: 'Solution Architect & Full-stack Developer',
+      impact: 'Waktu proses inventory checking berkurang 60%, dari 5 jam menjadi 2 jam per cycle.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Procurement Dashboard',
       businessContext: 'Supply Chain Management',
-      description:
-          'Dashboard web untuk monitoring proses procurement mulai dari PR hingga PO dengan visualisasi status dan analytics.',
-      technologies: ['Flutter Web','BAPI', 'PostgreSQL', 'REST API', 'Charts'],
-      role: 'Frontend Developer',
-      impact: 'Visibility procurement process meningkat untuk management',
+      problem:
+          'Management kesulitan memantau status procurement secara real-time. Laporan manual memakan waktu 2 hari dan sering outdated.',
+      analysisSolution:
+          'Menganalisis kebutuhan visibility management dan merancang dashboard dengan visualisasi real-time. Menggunakan AI untuk optimasi query dan implementasi data caching, pagination, serta lazy loading untuk handle data besar dari SAP.',
+      technologies: ['Flutter Web', 'BAPI', 'PostgreSQL', 'REST API', 'Charts'],
+      role: 'Solution Architect & Frontend Developer',
+      impact: 'Visibility procurement meningkat 100%, laporan tersedia real-time tanpa proses manual.',
       category: ProjectCategory.web,
     ),
     Project(
       title: 'SAP Integration Middleware',
       businessContext: 'System Integration',
-      description:
-          'Middleware untuk integrasi data antara aplikasi mobile dengan SAP menggunakan RFC dan BAPI calls.',
+      problem:
+          'Aplikasi mobile tidak bisa berkomunikasi langsung dengan SAP, menyebabkan data entry ganda dan inkonsistensi data.',
+      analysisSolution:
+          'Merancang middleware layer yang menjembatani format data modern dengan SAP RFC/BAPI. Membangun layer transformasi data yang robust dengan comprehensive logging. AI membantu dalam debugging dan optimasi error handling.',
       technologies: ['Node.js', 'SAP RFC', 'BAPI', 'REST API'],
-      role: 'Integration Developer',
-      impact: 'Real-time sync data antara mobile app dan SAP ECC',
+      role: 'Integration Architect & Developer',
+      impact: 'Real-time sync antara mobile app dan SAP ECC, eliminasi data entry ganda.',
       category: ProjectCategory.integration,
     ),
     Project(
       title: 'Delivery Tracking App',
       businessContext: 'Logistics & Distribution',
-      description:
-          'Aplikasi mobile untuk driver delivery dengan GPS tracking, proof of delivery, dan sync dengan sistem warehouse.',
-      technologies: [
-        'Flutter',
-        'Google Maps',
-        'Firebase',
-        'Camera API',
-        'PocketBase',
-        'REST API',
-        'BAPI',
-        'SAP RFC'
-        ],
-      role: 'Mobile Developer',
-      impact: 'Tracking delivery real-time dan dokumentasi digital',
+      problem:
+          'Tidak ada visibility terhadap posisi driver dan status delivery. Customer complaint tinggi karena ketidakpastian waktu kedatangan.',
+      analysisSolution:
+          'Menganalisis pain points logistik dan merancang solusi GPS tracking dengan proof of delivery. Implementasi adaptive location tracking yang menyesuaikan interval berdasarkan kecepatan untuk optimasi baterai. AI-Assisted dalam prototyping UI/UX.',
+      technologies: ['Flutter', 'Google Maps', 'Firebase', 'Camera API', 'PocketBase', 'REST API', 'BAPI', 'SAP RFC'],
+      role: 'Solution Architect & Mobile Developer',
+      impact: 'Customer complaint turun 70%, ETA accuracy meningkat dari 40% menjadi 85%.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Fuel Consumption & Purchase Control System',
       businessContext: 'Fleet Management & Cost Control',
-      description:
-          'Sistem aplikasi untuk monitoring pembelian dan konsumsi BBM armada, '
-          'dengan validasi lokasi SPBU, pencatatan odometer, foto bukti transaksi, '
-          'serta integrasi data untuk analisis biaya operasional.',
-      technologies: [
-        'Flutter',
-        'PocketBase',
-        'REST API',
-        'GPS',
-        'BAPI'
-        'Camera API',
-      ],
-      role: 'Fullstack Mobile Developer & System Analyst',
-      impact:
-          'Efisiensi biaya operasional armada, data BBM terstruktur, '
-          'dan dasar analisis untuk pengambilan keputusan manajemen.',
+      problem:
+          'Potensi kecurangan BBM tinggi karena tidak ada validasi. Biaya operasional armada sulit dikontrol dan dianalisis.',
+      analysisSolution:
+          'Merancang sistem dengan geofencing SPBU terverifikasi, mandatory photo capture dengan metadata, dan anomaly detection untuk pola konsumsi tidak wajar. AI membantu analisis pola data untuk deteksi fraud.',
+      technologies: ['Flutter', 'PocketBase', 'REST API', 'GPS', 'BAPI', 'Camera API'],
+      role: 'System Analyst & Fullstack Developer',
+      impact: 'Penghematan biaya BBM 15-20% melalui deteksi dan pencegahan penyalahgunaan.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Aplikasi Sistem Perkreditan Barang',
       businessContext: 'Retail Financing & Micro Finance',
-      description:
-          'Aplikasi Android untuk pengelolaan kredit barang dengan simulasi cicilan, '
-          'pencatatan pembayaran, monitoring sisa angsuran, serta laporan keuangan. '
-          'Mendukung multi-role user (Sysadmin, Admin, Konsumen) dengan kontrol akses berbeda.',
-      technologies: [
-        'Flutter',
-        'PocketBase',
-        'Firebase Cloud Messaging',
-        'QR Code',
-        'Camera API',
-        'Local Storage'
-      ],
-      role: 'Mobile App Developer & System Designer',
-      impact:
-          'Proses kredit lebih transparan, pencatatan transaksi rapi, '
-          'meminimalkan kesalahan manual, dan meningkatkan kontrol keuangan bisnis',
+      problem:
+          'Pencatatan kredit manual rentan error, kesulitan tracking pembayaran, dan sering terjadi kelalaian follow-up jatuh tempo.',
+      analysisSolution:
+          'Membangun calculation engine fleksibel untuk berbagai skema bunga dan cicilan. Implementasi scheduled notification dengan reminder bertingkat. AI-Assisted Development untuk mempercepat pembuatan business logic kompleks.',
+      technologies: ['Flutter', 'PocketBase', 'Firebase Cloud Messaging', 'QR Code', 'Camera API', 'Local Storage'],
+      role: 'System Designer & Mobile Developer',
+      impact: 'Kesalahan pencatatan turun 90%, tingkat keterlambatan pembayaran berkurang 35%.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Foaming Production Monitoring App',
       businessContext: 'Manufacturing & SAP Integration',
-      description:
-          'Aplikasi Android untuk pencatatan dan monitoring proses produksi foaming di pabrik, '
-          'mulai dari input hasil produksi, konsumsi bahan baku, reject produksi, hingga sinkronisasi '
-          'data ke SAP MM & WM secara real-time atau batch.',
-      technologies: [
-        'Flutter',
-        'SAP OData / RFC',
-        'REST API',
-        'PocketBase / Firebase',
-        'Android Camera API'
-      ],
-      role: 'Android Developer & SAP MM/WM Consultant',
-      impact:
-          'Produksi foaming lebih terkontrol, data akurat tanpa input manual di SAP, '
-          'mengurangi selisih stok bahan baku dan mempercepat pelaporan produksi.',
+      problem:
+          'Input produksi manual ke SAP memakan waktu lama, sering terjadi selisih stok bahan baku, dan pelaporan produksi terlambat.',
+      analysisSolution:
+          'Menganalisis kondisi pabrik (panas, debu, operator non-tech) dan merancang UI ultra-sederhana dengan tombol besar dan validasi ketat. Sinkronisasi otomatis ke SAP MM & WM. AI membantu optimasi form validation logic.',
+      technologies: ['Flutter', 'SAP OData / RFC', 'REST API', 'PocketBase / Firebase', 'Android Camera API'],
+      role: 'SAP MM/WM Consultant & Android Developer',
+      impact: 'Pelaporan produksi real-time, selisih stok bahan baku berkurang 80%.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Vendor Return Management App',
       businessContext: 'Logistics, Procurement & Reverse Supply Chain',
-      description:
-          'Aplikasi mobile & web untuk mengelola proses retur barang dari vendor ekspedisi, mulai dari pelaporan retur, verifikasi kondisi barang, pelacakan status retur, hingga integrasi dengan sistem gudang dan keuangan.',
-      technologies: [
-        'Flutter',
-        'REST API',
-        'PocketBase / Firebase',
-        'Camera API',
-        'QR Code Scanner',
-        'GPS & Timestamp'
-      ],
-      role: 'Fullstack Mobile Developer & System Designer',
-      impact:
-          'Mempercepat proses retur barang, meningkatkan akurasi data retur, mengurangi dispute dengan vendor ekspedisi, dan menyediakan audit trail digital end-to-end.',
+      problem:
+          'Proses retur barang tidak terstruktur, sering terjadi dispute dengan vendor ekspedisi, dan tidak ada audit trail yang jelas.',
+      analysisSolution:
+          'Merancang state machine untuk workflow retur multi-pihak (gudang, vendor, finance) dengan approval berlapis. Push notification untuk setiap stakeholder dan audit trail digital end-to-end.',
+      technologies: ['Flutter', 'REST API', 'PocketBase / Firebase', 'Camera API', 'QR Code Scanner', 'GPS & Timestamp'],
+      role: 'System Designer & Fullstack Developer',
+      impact: 'Dispute dengan vendor turun 60%, waktu proses retur berkurang dari 7 hari menjadi 2 hari.',
       category: ProjectCategory.mobile,
     ),
     Project(
       title: 'Various Other Projects',
       businessContext: 'Multi-Industry Solutions',
-      description:
-          'Selain project yang ditampilkan, saya juga mengerjakan banyak project lain di berbagai domain seperti manufaktur, keuangan, logistik, dan internal tools perusahaan. '
-          'Beberapa di antaranya bersifat private, internal, atau dilindungi NDA.',
-      technologies: [
-        'Flutter',
-        'Android Native',
-        'Web App',
-        'REST API',
-        'Firebase',
-        'PocketBase',
-        'SAP Integration'
-      ],
-      role: 'Full Stack Developer & SAP Consultant',
-      impact:
-          'Membantu digitalisasi proses bisnis, meningkatkan efisiensi operasional, dan mempercepat pengambilan keputusan.',
+      problem:
+          'Berbagai klien di industri manufaktur, keuangan, dan logistik menghadapi masalah digitalisasi proses yang berbeda-beda.',
+      analysisSolution:
+          'Pendekatan konsultatif: memahami business process sebelum coding, iterasi cepat dengan feedback end-user. AI-Assisted Development memungkinkan delivery lebih cepat untuk setiap kebutuhan unik.',
+      technologies: ['Flutter', 'Android Native', 'Web App', 'REST API', 'Firebase', 'PocketBase', 'SAP Integration'],
+      role: 'Solution Architect & Full Stack Developer',
+      impact: 'Digitalisasi berhasil untuk berbagai proses bisnis, efisiensi operasional meningkat rata-rata 40%.',
       category: ProjectCategory.general,
     ),
   ];

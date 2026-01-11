@@ -94,12 +94,43 @@ class ProjectsSection extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           
+          const SizedBox(height: AppTheme.spacingMd),
+          
+          // Problem Section
+          _buildSectionBox(
+            context,
+            icon: Icons.error_outline,
+            label: 'Problem',
+            content: project.problem,
+            backgroundColor: const Color(0xFFFFEBEE),
+            borderColor: const Color(0xFFEF9A9A),
+            iconColor: const Color(0xFFC62828),
+          ),
+          
           const SizedBox(height: AppTheme.spacingSm),
           
-          // Description
-          Text(
-            project.description,
-            style: Theme.of(context).textTheme.bodySmall,
+          // Analysis & Solution Section
+          _buildSectionBox(
+            context,
+            icon: Icons.lightbulb_outline,
+            label: 'Analysis & Solution',
+            content: project.analysisSolution,
+            backgroundColor: const Color(0xFFFFF3E0),
+            borderColor: const Color(0xFFFFB74D),
+            iconColor: const Color(0xFFE65100),
+          ),
+          
+          const SizedBox(height: AppTheme.spacingSm),
+          
+          // Impact Section
+          _buildSectionBox(
+            context,
+            icon: Icons.trending_up,
+            label: 'Impact',
+            content: project.impact,
+            backgroundColor: const Color(0xFFE8F5E9),
+            borderColor: const Color(0xFF81C784),
+            iconColor: const Color(0xFF2E7D32),
           ),
           
           const SizedBox(height: AppTheme.spacingMd),
@@ -123,31 +154,7 @@ class ProjectsSection extends StatelessWidget {
             ],
           ),
           
-          const SizedBox(height: AppTheme.spacingSm),
-          
-          // Impact
-          if (project.impact != null) ...[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Icon(
-                  Icons.trending_up,
-                  size: 16,
-                  color: AppTheme.accentColor,
-                ),
-                const SizedBox(width: AppTheme.spacingXs),
-                Expanded(
-                  child: Text(
-                    project.impact!,
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      color: AppTheme.accentColor,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: AppTheme.spacingMd),
-          ],
+          const SizedBox(height: AppTheme.spacingMd),
           
           // Technologies
           Wrap(
@@ -156,6 +163,50 @@ class ProjectsSection extends StatelessWidget {
             children: project.technologies
                 .map((tech) => SkillChip(label: tech))
                 .toList(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionBox(
+    BuildContext context, {
+    required IconData icon,
+    required String label,
+    required String content,
+    required Color backgroundColor,
+    required Color borderColor,
+    required Color iconColor,
+  }) {
+    return Container(
+      padding: const EdgeInsets.all(AppTheme.spacingSm),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+        border: Border.all(color: borderColor.withValues(alpha: 0.5)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 14, color: iconColor),
+              const SizedBox(width: AppTheme.spacingXs),
+              Text(
+                label,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: iconColor,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppTheme.spacingXs),
+          Text(
+            content,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: iconColor.withValues(alpha: 0.9),
+            ),
           ),
         ],
       ),

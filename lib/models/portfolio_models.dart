@@ -45,10 +45,11 @@ enum ExperienceType {
 class Project {
   final String title;
   final String businessContext;
-  final String description;
+  final String problem; // Masalah Bisnis
+  final String analysisSolution; // Analisis & Solusi (termasuk AI-Assisted jika relevan)
+  final String impact; // Hasil/Dampak yang terukur
   final List<String> technologies;
   final String role;
-  final String? impact;
   final String? imageUrl;
   final String? projectUrl;
   final ProjectCategory category;
@@ -56,10 +57,11 @@ class Project {
   const Project({
     required this.title,
     required this.businessContext,
-    required this.description,
+    required this.problem,
+    required this.analysisSolution,
+    required this.impact,
     required this.technologies,
     required this.role,
-    this.impact,
     this.imageUrl,
     this.projectUrl,
     required this.category,
