@@ -139,7 +139,7 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
     Experience(
       title: 'SAP MM/WM Consultant',
       company: 'Manufacturing & Distribution Industries',
-      period: '2020 - Present',
+      period: '2015 - Present',
       description:
           'Implementasi dan support sistem SAP untuk modul Material Management dan Warehouse Management di berbagai industri manufaktur dan distribusi.',
       responsibilities: [

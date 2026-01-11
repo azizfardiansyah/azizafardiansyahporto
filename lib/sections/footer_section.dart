@@ -9,7 +9,7 @@ class FooterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
-    const yearRange = '2018–2025';
+    const yearRange = '2018–2026';
 
     return Container(
       width: double.infinity,

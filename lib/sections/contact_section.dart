@@ -71,40 +71,57 @@ class ContactSection extends StatelessWidget {
           
           SizedBox(height: isMobile ? AppTheme.spacingLg : AppTheme.spacingXl),
           
-          // Availability message
+          // Availability & Services
           FadeInWidget(
             delay: const Duration(milliseconds: 500),
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppTheme.spacingLg,
-                vertical: AppTheme.spacingMd,
-              ),
-              decoration: BoxDecoration(
-                color: AppTheme.accentColor.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(AppTheme.radiusMd),
-                border: Border.all(color: AppTheme.accentColor.withOpacity(0.3)),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: 10,
-                    height: 10,
-                    decoration: const BoxDecoration(
-                      color: Colors.greenAccent,
-                      shape: BoxShape.circle,
-                    ),
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppTheme.spacingLg,
+                    vertical: AppTheme.spacingMd,
                   ),
-                  const SizedBox(width: AppTheme.spacingMd),
-                  Text(
-                    'Available for freelance & consultancy projects',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textLight,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  decoration: BoxDecoration(
+                    color: AppTheme.accentColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(AppTheme.radiusMd),
+                    border: Border.all(color: AppTheme.accentColor.withOpacity(0.3)),
                   ),
-                ],
-              ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 10,
+                        decoration: const BoxDecoration(
+                          color: Colors.greenAccent,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      const SizedBox(width: AppTheme.spacingMd),
+                      Text(
+                        'Available for Freelance & Consultancy',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppTheme.textLight,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: AppTheme.spacingMd),
+                // Services offered
+                Wrap(
+                  spacing: AppTheme.spacingSm,
+                  runSpacing: AppTheme.spacingSm,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    _buildServiceChip(context, 'SAP MM/WM Implementation'),
+                    _buildServiceChip(context, 'Mobile App Development'),
+                    _buildServiceChip(context, 'System Integration'),
+                    _buildServiceChip(context, 'Business Process Analysis'),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
@@ -173,6 +190,14 @@ class ContactSection extends StatelessWidget {
                   ),
                 ],
               ),
+              if (contact.icon == 'email') ...[
+                const SizedBox(width: AppTheme.spacingMd),
+                Icon(
+                  Icons.touch_app,
+                  color: AppTheme.accentColor.withOpacity(0.7),
+                  size: 16,
+                ),
+              ],
             ],
           ),
         ),
@@ -193,5 +218,25 @@ class ContactSection extends StatelessWidget {
       default:
         return Icons.contact_mail_outlined;
     }
+  }
+
+  Widget _buildServiceChip(BuildContext context, String label) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppTheme.spacingMd,
+        vertical: AppTheme.spacingSm,
+      ),
+      decoration: BoxDecoration(
+        color: AppTheme.primaryGray.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppTheme.primaryGray),
+      ),
+      child: Text(
+        label,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: AppTheme.lightGray,
+        ),
+      ),
+    );
   }
 }
