@@ -9,7 +9,7 @@ class FooterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isMobile = Responsive.isMobile(context);
-    const year = 2018;
+    const yearRange = '2018–2025';
 
     return Container(
       width: double.infinity,
@@ -24,8 +24,8 @@ class FooterSection extends StatelessWidget {
           const SizedBox(height: AppTheme.spacingLg),
           
           ResponsiveBuilder(
-            mobile: _buildMobileFooter(context, year),
-            desktop: _buildDesktopFooter(context, year),
+            mobile: _buildMobileFooter(context, yearRange),
+            desktop: _buildDesktopFooter(context, yearRange),
           ),
           
           const SizedBox(height: AppTheme.spacingMd),
@@ -34,7 +34,7 @@ class FooterSection extends StatelessWidget {
     );
   }
 
-  Widget _buildMobileFooter(BuildContext context, int year) {
+  Widget _buildMobileFooter(BuildContext context, String yearRange) {
     return Column(
       children: [
         // Name and role
@@ -55,7 +55,7 @@ class FooterSection extends StatelessWidget {
         
         // Copyright
         Text(
-          '© $year ${PortfolioData.name}. All rights reserved.',
+          '© $yearRange ${PortfolioData.name}. All rights reserved.',
           style: Theme.of(context).textTheme.labelSmall?.copyWith(
             color: AppTheme.secondaryGray,
           ),
@@ -72,7 +72,7 @@ class FooterSection extends StatelessWidget {
     );
   }
 
-  Widget _buildDesktopFooter(BuildContext context, int year) {
+  Widget _buildDesktopFooter(BuildContext context, String yearRange) {
     return Wrap(
       alignment: WrapAlignment.spaceBetween,
       crossAxisAlignment: WrapCrossAlignment.center,
@@ -110,7 +110,7 @@ class FooterSection extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              '© $year ${PortfolioData.name}',
+              '© $yearRange ${PortfolioData.name}',
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
                 color: AppTheme.secondaryGray,
               ),

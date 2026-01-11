@@ -69,33 +69,41 @@ class ContactSection extends StatelessWidget {
             ),
           ),
           
-          SizedBox(height: isMobile ? AppTheme.spacingXl : AppTheme.spacingXxl),
+          SizedBox(height: isMobile ? AppTheme.spacingLg : AppTheme.spacingXl),
           
-          // Primary CTA button
+          // Availability message
           FadeInWidget(
             delay: const Duration(milliseconds: 500),
-            child: ElevatedButton.icon(
-              onPressed: () {
-                // Copy email to clipboard
-                Clipboard.setData(
-                  const ClipboardData(text: 'azisfardiansyah@email.com'),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Email berhasil disalin!'),
-                    duration: Duration(seconds: 2),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppTheme.spacingLg,
+                vertical: AppTheme.spacingMd,
+              ),
+              decoration: BoxDecoration(
+                color: AppTheme.accentColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(AppTheme.radiusMd),
+                border: Border.all(color: AppTheme.accentColor.withOpacity(0.3)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: 10,
+                    height: 10,
+                    decoration: const BoxDecoration(
+                      color: Colors.greenAccent,
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                );
-              },
-              icon: const Icon(Icons.copy, size: 20),
-              label: const Text('Copy Email'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.surfaceWhite,
-                foregroundColor: AppTheme.primaryBlack,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppTheme.spacingXl,
-                  vertical: AppTheme.spacingMd,
-                ),
+                  const SizedBox(width: AppTheme.spacingMd),
+                  Text(
+                    'Available for freelance & consultancy projects',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppTheme.textLight,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -108,9 +116,24 @@ class ContactSection extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: contact.url != null ? () {
-          _launchUrl(contact.url);
-        } : null,
+        onTap: () {
+          if (contact.icon == 'email') {
+            // Copy email to clipboard
+            Clipboard.setData(ClipboardData(text: contact.value));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('${contact.value} berhasil disalin!'),
+                duration: const Duration(seconds: 2),
+                action: SnackBarAction(
+                  label: 'Buka Email',
+                  onPressed: () => _launchUrl('mailto:${contact.value}'),
+                ),
+              ),
+            );
+          } else if (contact.url != null) {
+            _launchUrl(contact.url);
+          }
+        },
         borderRadius: BorderRadius.circular(AppTheme.radiusMd),
         child: Container(
           padding: const EdgeInsets.symmetric(

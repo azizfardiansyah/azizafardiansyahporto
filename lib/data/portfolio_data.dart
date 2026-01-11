@@ -9,6 +9,7 @@ class PortfolioData {
   static const String name = 'Azis Fardiansyah';
   static const String role = 'Technical Project Manager & Solution Architect';
   static const String tagline = 'Bridging Business Problems to Technology Solutions';
+  static const String sapHook = 'Bridging the gap between legacy systems and modern mobile experiences';
   static const String heroSubtitle =
       'Menganalisis masalah bisnis, merancang solusi teknologi, dan mengeksekusi dengan pendekatan AI-Assisted Development untuk hasil yang efisien dan berkualitas.';
 

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 import '../theme/responsive.dart';
@@ -113,9 +115,35 @@ class HeroSection extends StatelessWidget {
             
             const SizedBox(height: AppTheme.spacingXl),
             
-            // SAP Experience badges
+            // SAP Hook - Value proposition
             FadeInWidget(
               delay: const Duration(milliseconds: 500),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppTheme.spacingMd,
+                  vertical: AppTheme.spacingSm,
+                ),
+                decoration: BoxDecoration(
+                  color: AppTheme.accentColor.withOpacity(0.08),
+                  borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+                  border: Border.all(color: AppTheme.accentColor.withOpacity(0.2)),
+                ),
+                child: Text(
+                  PortfolioData.sapHook,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: AppTheme.accentColor,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+            
+            const SizedBox(height: AppTheme.spacingLg),
+            
+            // SAP Experience badges
+            FadeInWidget(
+              delay: const Duration(milliseconds: 600),
               child: Wrap(
                 spacing: AppTheme.spacingSm,
                 runSpacing: AppTheme.spacingSm,
@@ -132,7 +160,7 @@ class HeroSection extends StatelessWidget {
             
             // CTA buttons
             FadeInWidget(
-              delay: const Duration(milliseconds: 600),
+              delay: const Duration(milliseconds: 700),
               child: Wrap(
                 spacing: AppTheme.spacingMd,
                 runSpacing: AppTheme.spacingMd,
