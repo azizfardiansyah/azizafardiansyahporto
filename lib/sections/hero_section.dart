@@ -152,6 +152,7 @@ class HeroSection extends StatelessWidget {
                   _buildExperienceBadge(context, 'SAP WM', Icons.warehouse_outlined),
                   _buildExperienceBadge(context, 'Flutter', Icons.phone_android_outlined),
                   _buildExperienceBadge(context, 'Web', Icons.language_outlined),
+                  _buildExperienceBadge(context, 'Flutter', Icons.phone_android_outlined),
                 ],
               ),
             ),

@@ -63,7 +63,7 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
       description: 'Native and cross-platform mobile solutions',
       skills: [
         'Flutter',
-        'Kotlin',
+        'Dart',
         'Android SDK',
         'Material Design',
         'Firebase',
@@ -73,10 +73,10 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
       title: 'Backend & Integration',
       description: 'Server-side development and system integration',
       skills: [
-        'Node.js',
+        'BAPI/OData Services',
         'Python',
         'PostgreSQL',
-        'MySQL',
+        'RFC Integration',
         'REST/SOAP APIs',
         'Firebase',
       ],
@@ -174,6 +174,7 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
         'REST API',
         'PostgreSQL',
         'Git',
+        'RFC Integration',
         'Pocketbase',
         'BAPI/OData Services'
       ],
@@ -190,7 +191,7 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
           'Klien mengalami inefisiensi 40% pada proses stock opname karena pencatatan manual dan keterlambatan sinkronisasi data dengan SAP.',
       analysisSolution:
           'Saya menganalisis alur kerja warehouse dan merancang solusi mobile-first dengan barcode scanning. Menggunakan AI-Assisted Development untuk mempercepat prototyping dan mengimplementasikan offline-first architecture dengan queue system untuk mengatasi koneksi tidak stabil.',
-      technologies: ['Flutter', 'BAPI', 'SAP RFC', 'Firebase', 'REST API', 'Barcode Scanner'],
+      technologies: ['Flutter', 'BAPI', 'SAP RFC', 'Firebase', 'REST API','PostgreSQL', 'Barcode Scanner'],
       role: 'Solution Architect & Full-stack Developer',
       impact: 'Waktu proses inventory checking berkurang 60%, dari 5 jam menjadi 2 jam per cycle.',
       category: ProjectCategory.mobile,
@@ -202,7 +203,7 @@ Pendekatan saya: Analisis mendalam terhadap pain points bisnis, perancangan solu
           'Management kesulitan memantau status procurement secara real-time. Laporan manual memakan waktu 2 hari dan sering outdated.',
       analysisSolution:
           'Menganalisis kebutuhan visibility management dan merancang dashboard dengan visualisasi real-time. Menggunakan AI untuk optimasi query dan implementasi data caching, pagination, serta lazy loading untuk handle data besar dari SAP.',
-      technologies: ['Flutter Web', 'BAPI', 'PostgreSQL', 'REST API', 'Charts'],
+      technologies: ['Flutter Web', 'BAPI', 'PostgreSQL', 'REST API','RFC/OData Services', 'Charts'],
       role: 'Solution Architect & Frontend Developer',
       impact: 'Visibility procurement meningkat 100%, laporan tersedia real-time tanpa proses manual.',
       category: ProjectCategory.web,
